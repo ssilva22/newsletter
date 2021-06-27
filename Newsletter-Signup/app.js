@@ -2,10 +2,14 @@
 const express= require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
-const nodemon= require('nodemon');
+
+
 
 
 const app= express();
+
+
+app.use(express.static(""))
 
 app.get("/", function(req,res){
     res.sendFile(__dirname+"/signup.html");
