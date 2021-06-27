@@ -41,8 +41,28 @@ const data= {
 
     const url="mailchimplistIDurl/listID";
 
+    const options= {
+        method: "POST",
+        auth: "auth"
+    }
 
-    https.request(url, options, function(response))
+
+   const request= https.request(url, options, function(response){
+    if (response.statusCode === 200){
+        res.send('Successfully subscribed');
+    }
+    else{
+        res.send("There was an error with signing up, please try again!")
+    }
+
+
+        response.on("data", function(data){
+            console.log(JSON.parse(data));
+        })
+    })
+
+    request.write(jsonData);
+    request.end();
 });
 
 app.listen(2000, function(){
