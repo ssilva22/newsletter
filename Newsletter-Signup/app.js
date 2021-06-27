@@ -65,6 +65,6 @@ const data= {
     request.end();
 });
 
-app.listen(2000, function(){
+app.listen(process.env.PORT || 2000, function(){
     console.log("Server started on port 2000");
 });
